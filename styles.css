@@ -1,0 +1,33 @@
+#form-div{
+    display: flex;
+    border: 1px black solid;
+    width: 250px;
+    flex-wrap: wrap;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#title{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px rgb(69, 69, 69);
+    margin-bottom: 10px;
+}
+
+#form{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+#buttons{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras</title>
+    <script src="Circuito.js" defer></script>
+    <script src="Participante.js" defer></script>
+    <script src="Vehiculo.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Carreras</h1>
+    <div id="form-div">
+        <div id="form">
+            <span id="title">Gestion de Participantes</span>
+            <span>Nombre</span>
+            <input list="participantes" placeholder="Nombre">
+            <datalist id="participantes">
+                <option>Example</option>
+                <!--Aqui cargare a todos los participantes-->
+            </datalist>
+            <select id="vehiculos">
+                <option value="example">Example</option>
+                <!--Aqui llamare a una funcion para rellenar el select con los vehiculos-->
+            </select>
+            <input type="text" placeholder="Estadisticas" id="stats">
+        </div>
+        <div id="buttons">
+            <input type="button" value="Guardar Participante" id="guardarP">
+            <input type="button" value="Cargar Estadisticas" id="cargarP">
+        </div>
+    </div>
+</body>
+
+</html>
