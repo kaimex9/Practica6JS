@@ -9,6 +9,7 @@ class Vehiculo {
         this.avance_min = avance_min;
         this.avance_max = avance_max;
     }
+    
 }
 
 class Motocicleta extends Vehiculo {

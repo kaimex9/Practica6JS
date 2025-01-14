@@ -5,32 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carreras</title>
-    <script src="Circuito.js" defer></script>
-    <script src="Participante.js" defer></script>
-    <script src="Vehiculo.js" defer></script>
+    <script src="/Objetos/Circuito.js" defer></script>
+    <script src="/Objetos/Participante.js" defer></script>
+    <script src="/Objetos/Vehiculo.js" defer></script>
+    <script src="functions.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <h1>Carreras</h1>
-    <div id="form-div">
+    <div class="form-div">
         <div id="form">
             <span id="title">Gestion de Participantes</span>
-            <span>Nombre</span>
-            <input list="participantes" placeholder="Nombre">
-            <datalist id="participantes">
-                <option>Example</option>
-                <!--Aqui cargare a todos los participantes-->
-            </datalist>
-            <select id="vehiculos">
-                <option value="example">Example</option>
-                <!--Aqui llamare a una funcion para rellenar el select con los vehiculos-->
-            </select>
-            <input type="text" placeholder="Estadisticas" id="stats">
+            <label>
+                <span>Nombre</span>
+                <input list="participantes" placeholder="Nombre">
+                <datalist id="participantes">
+                    <option>Example</option>
+                    <!--Aqui cargare a todos los participantes-->
+                </datalist>
+            </label>
+            <label>
+                <span>Vehiculo</span>
+                <select id="vehiculos">
+                    <option value="example">Example</option>
+                    <!--Aqui llamare a una funcion para rellenar el select con los vehiculos-->
+                </select>
+            </label>
+            <label>
+                <span>Stats</span>
+                <input type="text" placeholder="Estadisticas" id="stats">
+            </label>
+            <div id="buttons">
+                <input type="button" value="Guardar Participante" id="guardarP">
+                <input type="button" value="Cargar Estadisticas" id="cargarP">
+            </div>
         </div>
-        <div id="buttons">
-            <input type="button" value="Guardar Participante" id="guardarP">
-            <input type="button" value="Cargar Estadisticas" id="cargarP">
+    </div>
+
+    <div class="form-div">
+        <div id="form">
+            <span id="title">Nuevo Vehiculo</span>
+            <label>
+                <span>Modelo</span>
+                <input list="modelo" placeholder="Modelo">
+                <datalist id="modelo">
+                    <!--Aqui cargare a todos los modelos-->
+                </datalist>
+            </label>
+            <label>
+                <span>Vel. min&max</span>
+                
+            </label>
+            <label>
+                <span>Traccion</span>
+                <select id="traccion">
+                    <option value="blanda">Blanda</option>
+                    <option value="media">Media</option>
+                    <option value="dura">Dura</option>
+                </select>
+            </label>
+            <label>
+                <span>Tipo</span>
+                <select id="tipo">
+                    <option value="coche">Coche</option>
+                    <option value="moto">Motocicleta</option>
+                </select>
+            </label>
+            <div id="buttons">
+                <input type="button" value="Guardar Vehiculo" id="guardarV">
+                <input type="button" value="Cargar Vehiculo" id="cargarV">
+            </div>
         </div>
     </div>
 </body>

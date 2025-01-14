@@ -1,4 +1,8 @@
-#form-div{
+h1{
+    text-align: center;
+}
+
+.form-div{
     display: flex;
     border: 1px black solid;
     width: 250px;
