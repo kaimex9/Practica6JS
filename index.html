@@ -48,14 +48,15 @@
             <span id="title">Nuevo Vehiculo</span>
             <label>
                 <span>Modelo</span>
-                <input list="modelo" placeholder="Modelo">
-                <datalist id="modelo">
+                <input list="listaModelos" placeholder="Modelo" id="modelo">
+                <datalist id="listaModelos">
                     <!--Aqui cargare a todos los modelos-->
                 </datalist>
             </label>
             <label>
                 <span>Vel. min&max</span>
-                
+                <input type="number" id="velMin" placeholder="min">
+                <input type="number" id="velMax" placeholder="max">
             </label>
             <label>
                 <span>Traccion</span>

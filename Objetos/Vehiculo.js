@@ -9,16 +9,21 @@ class Vehiculo {
         this.avance_min = avance_min;
         this.avance_max = avance_max;
     }
-    
+
+}
+
+class Coche extends Vehiculo {
+    estado;
+    constructor(modelo, traccion, avance_min, avance_max) {
+        super(modelo, traccion, avance_min, avance_max);
+        this.estado;
+    }
 }
 
 class Motocicleta extends Vehiculo {
     estado;
     constructor(modelo, traccion, avance_min, avance_max) {
-        super(modelo);
-        super(traccion);
-        super(avance_min);
-        super(avance_max);
+        super(modelo, traccion, avance_min, avance_max);
         this.estado;
     }
 
@@ -27,13 +32,3 @@ class Motocicleta extends Vehiculo {
     }
 }
 
-class Coche extends Vehiculo {
-    estado;
-    constructor(modelo, traccion, avance_min, avance_max) {
-        super(modelo);
-        super(traccion);
-        super(avance_min);
-        super(avance_max);
-        this.estado;
-    }
-}
