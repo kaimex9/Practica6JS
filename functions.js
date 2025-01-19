@@ -1,15 +1,44 @@
 var Vehiculos = [];
 var Participantes = [];
-var Circuito = [];
+var Circuitos = [];
 Vehiculos[0] = new Coche("Toyota", "media", 10, 30);
 Vehiculos[1] = new Coche("BMV", "dura", 25, 40);
 Vehiculos[2] = new Motocicleta("Mercedes", "dura", 50, 70);
 Participantes[0] = new Participante("Mario", Vehiculos[0]);
 Participantes[1] = new Participante("Luigi", Vehiculos[1]);
 Participantes[2] = new Participante("Wario", Vehiculos[2]);
-console.log(Participantes);
+Circuitos[0] = new Circuito("Copa Estrella", 30, 10);
+Circuitos[1] = new Circuito("Copa Trifuerza", 60, 20);
+Circuitos[2] = new Circuito("Copa Especial", 15, 15);
 listarModelos();
 listarParticipantes();
+listarCircuitos();
+
+document.getElementById("op1").onclick = function() {
+    
+}
+
+document.getElementById("op2").onclick = function() {
+    document.getElementById("menu-div").style.display = "none";
+    document.getElementById("form1").setAttribute("style", "display: flex !important;");
+}
+
+document.getElementById("op3").onclick = function() {
+    document.getElementById("menu-div").style.display = "none";
+    document.getElementById("form2").setAttribute("style", "display: flex !important;");
+}
+
+document.getElementById("op4").onclick = function() {
+    document.getElementById("menu-div").style.display = "none";
+    document.getElementById("form3").setAttribute("style", "display: flex !important;");
+}
+
+document.getElementById("op5").onclick = function() {
+    document.getElementById("menu-div").style.display = "none";
+    document.getElementById("form4").setAttribute("style", "display: flex !important;");
+}
+
+//Funcion para guardar un vehiculo
 document.getElementById("guardarV").onclick = function () {
     var modelo = document.getElementById("modelo").value;
     var traccion = document.getElementById("traccion").value;
@@ -26,10 +55,10 @@ document.getElementById("guardarV").onclick = function () {
         }
         Vehiculos.push(vehiculo);
         listarModelos();
-        console.log(Vehiculos)
+        alert("Vehiculo Guardado con exito!");
     }
 }
-
+//Funcion para cargar un vehiculo
 document.getElementById("cargarV").onclick = function () {
     var modelo = document.getElementById("modelo").value;
     if (!modelo) {
@@ -55,36 +84,45 @@ document.getElementById("cargarV").onclick = function () {
             } else {
                 document.getElementById("tipo").value = "moto";
             }
-
         }
     }
 }
-
+//Funcion para listar los modelos en los datalists o selects
 function listarModelos() {
-    //Listar modelos en el formulario de vehiculos
     var lista = document.getElementById("listaModelos");
     var lista2 = document.getElementById("vehiculos");
     lista.innerHTML = "";
     lista2.innerHTML = "";
-    if (Vehiculos.length > 0) {
-        for (let i = 0; i < Vehiculos.length; i++) {
-            lista.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
-            lista2.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
-        }
+    for (let i = 0; i < Vehiculos.length; i++) {
+        lista.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
+        lista2.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
     }
 }
-
+//Funcion para listar los participantes en los datalists o selects
 function listarParticipantes() {
-    //Listar modelos en el formulario de vehiculos
     var lista = document.getElementById("participantes");
+    var lista2 = document.getElementById("participanteC");
     lista.innerHTML = "";
-    if (Participantes.length > 0) {
-        for (let i = 0; i < Participantes.length; i++) {
-            lista.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
-        }
+    lista2.innerHTML = "";
+    for (let i = 0; i < Participantes.length; i++) {
+        lista.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
+        lista2.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
     }
 }
 
+//Funcion para listar los Circuitos en los datalists o selects
+function listarCircuitos() {
+    var lista = document.getElementById("nombreCircuito");
+    var lista2 = document.getElementById("circuitosC");
+    lista.innerHTML = "";
+    lista2.innerHTML = "";
+    for (let i = 0; i < Circuitos.length; i++) {
+        lista.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
+        lista2.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
+    }
+}
+
+//Funcion para guardar un participante
 document.getElementById("guardarP").onclick = function () {
     var nombre = document.getElementById("participante").value;
     var vehiculo = document.getElementById("vehiculos").value;
@@ -94,10 +132,10 @@ document.getElementById("guardarP").onclick = function () {
         var participante = new Participante(nombre, vehiculo);
         Participantes.push(participante);
         listarParticipantes();
-        console.log(Participantes);
+        alert("Participante Guardado con exito!");
     }
 }
-
+//Funcion para cargar un participante
 document.getElementById("cargarP").onclick = function () {
     var nombre = document.getElementById("participante").value;
     if (!nombre) {
@@ -121,5 +159,21 @@ document.getElementById("cargarP").onclick = function () {
                 document.getElementById("stats").value = participanteEncontrado.historial;
             }
         }
+    }
+}
+
+//Funcion para guardar un Circuito
+document.getElementById("guardarC").onclick = function () {
+    var nombre = document.getElementById("nombreCircuito").value;
+    var longitud = document.getElementById("longitud").value;
+    var tiempo = document.getElementById("tiempo").value;
+    if (!nombre || !longitud) {
+        alert("Porfavor, asegurate de no dejar ningun campo en blanco");
+    } else {
+        var circuito = new Circuito(nombre, tiempo, longitud);
+        Circuitos.push(circuito);
+        listarCircuitos()
+        console.log(Circuitos);
+        alert("Circuito Guardado con exito!");
     }
 }

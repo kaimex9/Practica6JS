@@ -1,9 +1,57 @@
+@font-face {
+    font-family: 'Nintendo';
+    src: url('fonts/Pretendo.ttf') format('woff2');
+    font-weight: normal; /* Puedes cambiar a 'bold' si es una fuente negrita */
+    font-style: normal; /* Cambia a 'italic' si es cursiva */
+}
+
+
 h1{
+    text-align: center;
+    font-size: 110px;
+}
+
+body{
+    background: url('img/5d0a92939cbdd8900cb67179c731f4d0.gif') no-repeat center center fixed;
+    background-size: contain;
+    background-color: black;
+    color: white;
+    font-family: 'Nintendo';
+}
+
+
+
+#menu-div{
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
-.form-div{
+.menu-option{
+    background-color: white;
+    color: red;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 25px;
+    margin: 15px 0px 15px 0px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-option:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#gloval-forms{
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-div{
+    display: none; /*Esto cambiara a Flex desde el JS*/
     border: 1px black solid;
     width: 250px;
     flex-wrap: wrap;

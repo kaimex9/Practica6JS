@@ -13,67 +13,110 @@
 </head>
 
 <body>
-    <h1>Carreras</h1>
-    <div class="form-div">
-        <div id="form">
-            <span id="title">Gestion de Participantes</span>
-            <label>
-                <span>Nombre</span>
-                <input list="participantes" placeholder="Nombre" id="participante">
-                <datalist id="participantes">
-                </datalist>
-            </label>
-            <label>
-                <span>Vehiculo</span>
-                <select id="vehiculos">
-                </select>
-            </label>
-            <label>
-                <span>Stats</span>
-                <input type="text" placeholder="Estadisticas" id="stats">
-            </label>
-            <div id="buttons">
-                <input type="button" value="Guardar Participante" id="guardarP">
-                <input type="button" value="Cargar Estadisticas" id="cargarP">
-            </div>
+    <h1>Mario Kart</h1>
+    <div id="menu-div">
+        <div id="menu">
+            <div id="op1" class="menu-option">Start</div>
+            <div id="op2" class="menu-option">Crear Participantes</div>
+            <div id="op3" class="menu-option">Crear Vehiculos</div>
+            <div id="op4" class="menu-option">Crear Circuitos</div>
+            <div id="op5" class="menu-option">Gestion de Circuitos</div>
         </div>
     </div>
-
-    <div class="form-div">
-        <div id="form">
-            <span id="title">Nuevo Vehiculo</span>
-            <label>
-                <span>Modelo</span>
-                <input list="listaModelos" placeholder="Modelo" id="modelo">
-                <datalist id="listaModelos">
-                </datalist>
-            </label>
-            <label>
-                <span>Vel. min&max</span>
-                <input type="number" id="velMin" placeholder="min">
-                <input type="number" id="velMax" placeholder="max">
-            </label>
-            <label>
-                <span>Traccion</span>
-                <select id="traccion">
-                    <option value="blanda">Blanda</option>
-                    <option value="media">Media</option>
-                    <option value="dura">Dura</option>
-                </select>
-            </label>
-            <label>
-                <span>Tipo</span>
-                <select id="tipo">
-                    <option value="coche">Coche</option>
-                    <option value="moto">Motocicleta</option>
-                </select>
-            </label>
-            <div id="buttons">
-                <input type="button" value="Guardar Vehiculo" id="guardarV">
-                <input type="button" value="Cargar Vehiculo" id="cargarV">
+    <div id="gloval-forms">
+        <div class="form-div" id="form1">
+            <div id="form">
+                <span id="title">Gestion de Participantes</span>
+                <label>
+                    <span>Nombre</span>
+                    <input list="participantes" placeholder="Nombre" id="participante">
+                    <datalist id="participantes"></datalist>
+                </label>
+                <label>
+                    <span>Vehiculo</span>
+                    <select id="vehiculos">
+                    </select>
+                </label>
+                <label>
+                    <span>Stats</span>
+                    <input type="text" placeholder="Estadisticas" id="stats">
+                </label>
+                <div id="buttons">
+                    <input type="button" value="Guardar Participante" id="guardarP">
+                    <input type="button" value="Cargar Estadisticas" id="cargarP">
+                </div>
+            </div>
+        </div>
+        <div class="form-div" id="form2">
+            <div id="form">
+                <span id="title">Nuevo Vehiculo</span>
+                <label>
+                    <span>Modelo</span>
+                    <input list="listaModelos" placeholder="Modelo" id="modelo">
+                    <datalist id="listaModelos"></datalist>
+                </label>
+                <label>
+                    <span>Vel. min&max</span>
+                    <input type="number" id="velMin" placeholder="min">
+                    <input type="number" id="velMax" placeholder="max">
+                </label>
+                <label>
+                    <span>Traccion</span>
+                    <select id="traccion">
+                        <option value="blanda">Blanda</option>
+                        <option value="media">Media</option>
+                        <option value="dura">Dura</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Tipo</span>
+                    <select id="tipo">
+                        <option value="coche">Coche</option>
+                        <option value="moto">Motocicleta</option>
+                    </select>
+                </label>
+                <div id="buttons">
+                    <input type="button" value="Guardar Vehiculo" id="guardarV">
+                    <input type="button" value="Cargar Vehiculo" id="cargarV">
+                </div>
+            </div>
+        </div>
+        <div class="form-div" id="form3">
+            <div id="form">
+                <span id="title">Nuevo Circuito</span>
+                <label>
+                    Nombre <input type="text" id="nombreCircuito" placeholder="Nombre">
+                </label>
+                <label>
+                    Longitud <input type="number" id="longitud" placeholder="Longitud" min="1" max="20">
+                </label>
+                <label>
+                    Tiempo <select id="tiempo">
+                        <option value="15">15 minutos</option>
+                        <option value="30">30 minutos</option>
+                        <option value="60">1 hora</option>
+                    </select>
+                </label>
+                <div id="buttons">
+                    <input type="button" value="Guardar Circuito" id="guardarC">
+                </div>
+            </div>
+        </div>
+        <div class="form-div" id="form4">
+            <div id="form">
+                <span id="title">Gestion de Circuitos</span>
+                <label>
+                    Circuitos <select id="circuitosC"></select>
+                </label>
+                <label>
+                    Participantes <select id="participanteC"></select>
+                </label>
+                <div id="buttons">
+                    <input type="button" value="Asignar Participante" id="asignarC">
+                    <input type="button" value="Eliminar Participante" id="eliminar">
+                </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
