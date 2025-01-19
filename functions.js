@@ -1,4 +1,15 @@
 var Vehiculos = [];
+var Participantes = [];
+var Circuito = [];
+Vehiculos[0] = new Coche("Toyota", "media", 10, 30);
+Vehiculos[1] = new Coche("BMV", "dura", 25, 40);
+Vehiculos[2] = new Motocicleta("Mercedes", "dura", 50, 70);
+Participantes[0] = new Participante("Mario", Vehiculos[0]);
+Participantes[1] = new Participante("Luigi", Vehiculos[1]);
+Participantes[2] = new Participante("Wario", Vehiculos[2]);
+console.log(Participantes);
+listarModelos();
+listarParticipantes();
 document.getElementById("guardarV").onclick = function () {
     var modelo = document.getElementById("modelo").value;
     var traccion = document.getElementById("traccion").value;
@@ -52,19 +63,63 @@ document.getElementById("cargarV").onclick = function () {
 function listarModelos() {
     //Listar modelos en el formulario de vehiculos
     var lista = document.getElementById("listaModelos");
-    lista.innerHTML = "";
-    if (Vehiculos.length > 0) {
-        for (let i = 0; i < Vehiculos.length; i++) {
-            lista.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
-        }
-    }
-
-    //Listar modelos en el formulario de participantes
     var lista2 = document.getElementById("vehiculos");
+    lista.innerHTML = "";
     lista2.innerHTML = "";
     if (Vehiculos.length > 0) {
         for (let i = 0; i < Vehiculos.length; i++) {
+            lista.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
             lista2.innerHTML += '<option value=' + Vehiculos[i].modelo + '>' + Vehiculos[i].modelo + '</option>';
+        }
+    }
+}
+
+function listarParticipantes() {
+    //Listar modelos en el formulario de vehiculos
+    var lista = document.getElementById("participantes");
+    lista.innerHTML = "";
+    if (Participantes.length > 0) {
+        for (let i = 0; i < Participantes.length; i++) {
+            lista.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
+        }
+    }
+}
+
+document.getElementById("guardarP").onclick = function () {
+    var nombre = document.getElementById("participante").value;
+    var vehiculo = document.getElementById("vehiculos").value;
+    if (!nombre) {
+        alert("Porfavor, asegurate de no dejar ningun campo en blanco");
+    } else {
+        var participante = new Participante(nombre, vehiculo);
+        Participantes.push(participante);
+        listarParticipantes();
+        console.log(Participantes);
+    }
+}
+
+document.getElementById("cargarP").onclick = function () {
+    var nombre = document.getElementById("participante").value;
+    if (!nombre) {
+        alert("Porfavor, selecciona el nombre del participante que quieras cargar");
+    } else {
+        var found = false;
+        var participanteEncontrado;
+        for (let i = 0; i < Participantes.length; i++) {
+            if (Participantes[i].nombre == nombre) {
+                participanteEncontrado = Participantes[i];
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            alert("Participante no encontrado");
+        } else {
+            document.getElementById("vehiculos").value = participanteEncontrado.vehiculo.modelo;
+            if (participanteEncontrado.historial) {
+                document.getElementById("stats").value = participanteEncontrado.historial;
+            }
         }
     }
 }

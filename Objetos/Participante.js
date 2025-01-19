@@ -1,10 +1,10 @@
 class Participante {
     nombre;
     vehiculo;
-    historial = [];
+    historial;
     constructor(nombre,vehiculo) {
         this.nombre = nombre;
         this.vehiculo = vehiculo;
-        this.historial = historial;
+        this.historial = [];
     }
 }
