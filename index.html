@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carreras</title>
-    <script src="/Objetos/Circuito.js" defer></script>
-    <script src="/Objetos/Participante.js" defer></script>
-    <script src="/Objetos/Vehiculo.js" defer></script>
+    <script src="/Objetos/Circuito.js"></script>
+    <script src="/Objetos/Participante.js"></script>
+    <script src="/Objetos/Vehiculo.js"></script>
     <script src="functions.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -45,6 +45,7 @@
                     <input type="button" value="Guardar Participante" id="guardarP">
                     <input type="button" value="Cargar Estadisticas" id="cargarP">
                 </div>
+                <input type="button" value="Volver" id="volver">
             </div>
         </div>
         <div class="form-div" id="form2">
@@ -79,13 +80,15 @@
                     <input type="button" value="Guardar Vehiculo" id="guardarV">
                     <input type="button" value="Cargar Vehiculo" id="cargarV">
                 </div>
+                <input type="button" value="Volver" id="volver">
             </div>
         </div>
         <div class="form-div" id="form3">
             <div id="form">
                 <span id="title">Nuevo Circuito</span>
                 <label>
-                    Nombre <input type="text" id="nombreCircuito" placeholder="Nombre">
+                    Nombre <input list="Circuitos" id="nombreCircuito" placeholder="Nombre">
+                    <datalist id="Circuitos"></datalist>
                 </label>
                 <label>
                     Longitud <input type="number" id="longitud" placeholder="Longitud" min="1" max="20">
@@ -100,6 +103,7 @@
                 <div id="buttons">
                     <input type="button" value="Guardar Circuito" id="guardarC">
                 </div>
+                <input type="button" value="Volver" id="volver">
             </div>
         </div>
         <div class="form-div" id="form4">
@@ -115,8 +119,10 @@
                     <input type="button" value="Asignar Participante" id="asignarC">
                     <input type="button" value="Eliminar Participante" id="eliminar">
                 </div>
+                <input type="button" value="Volver" id="volver">
             </div>
         </div>
     </div>
 </body>
+
 </html>

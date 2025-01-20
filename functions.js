@@ -1,3 +1,13 @@
+/*
+Pendiente:
+
+Que funcionen las stats de los participantes
+Hacer boton de "volver"
+Comprobar que no hayan vehiculos,participantes o circuitos con nombres repetidos
+que el min no sea mayor que el max
+Asignar un participante a un circuito
+Aplicarle un degradado a los botones
+*/
 var Vehiculos = [];
 var Participantes = [];
 var Circuitos = [];
@@ -7,9 +17,10 @@ Vehiculos[2] = new Motocicleta("Mercedes", "dura", 50, 70);
 Participantes[0] = new Participante("Mario", Vehiculos[0]);
 Participantes[1] = new Participante("Luigi", Vehiculos[1]);
 Participantes[2] = new Participante("Wario", Vehiculos[2]);
-Circuitos[0] = new Circuito("Copa Estrella", 30, 10);
-Circuitos[1] = new Circuito("Copa Trifuerza", 60, 20);
-Circuitos[2] = new Circuito("Copa Especial", 15, 15);
+Circuitos[0] = new Circuito("Copa_Estrella", 30, 10);
+Circuitos[1] = new Circuito("Copa_Trifuerza", 60, 20);
+Circuitos[2] = new Circuito("Copa_Especial", 15, 15);
+
 listarModelos();
 listarParticipantes();
 listarCircuitos();
@@ -20,23 +31,33 @@ document.getElementById("op1").onclick = function() {
 
 document.getElementById("op2").onclick = function() {
     document.getElementById("menu-div").style.display = "none";
-    document.getElementById("form1").setAttribute("style", "display: flex !important;");
+    document.getElementById("form1").style.display = "flex";
 }
 
 document.getElementById("op3").onclick = function() {
     document.getElementById("menu-div").style.display = "none";
-    document.getElementById("form2").setAttribute("style", "display: flex !important;");
+    document.getElementById("form2").style.display = "flex";
 }
 
 document.getElementById("op4").onclick = function() {
     document.getElementById("menu-div").style.display = "none";
-    document.getElementById("form3").setAttribute("style", "display: flex !important;");
+    document.getElementById("form3").style.display = "flex";
 }
 
 document.getElementById("op5").onclick = function() {
     document.getElementById("menu-div").style.display = "none";
-    document.getElementById("form4").setAttribute("style", "display: flex !important;");
+    document.getElementById("form4").style.display = "flex";
 }
+
+document.getElementById("volver").onclick = function() {
+    document.getElementById("menu-div").style.display = "flex";
+    console.log("hola");
+    document.getElementById("form1").style.display = "none";
+    document.getElementById("form2").style.display = "none";
+    document.getElementById("form3").style.display = "none";
+    document.getElementById("form4").style.display = "none";
+}
+
 
 //Funcion para guardar un vehiculo
 document.getElementById("guardarV").onclick = function () {
@@ -112,7 +133,8 @@ function listarParticipantes() {
 
 //Funcion para listar los Circuitos en los datalists o selects
 function listarCircuitos() {
-    var lista = document.getElementById("nombreCircuito");
+    console.log("abhfija");
+    var lista = document.getElementById("Circuitos");
     var lista2 = document.getElementById("circuitosC");
     lista.innerHTML = "";
     lista2.innerHTML = "";
@@ -150,7 +172,6 @@ document.getElementById("cargarP").onclick = function () {
                 break;
             }
         }
-
         if (!found) {
             alert("Participante no encontrado");
         } else {
@@ -177,3 +198,4 @@ document.getElementById("guardarC").onclick = function () {
         alert("Circuito Guardado con exito!");
     }
 }
+

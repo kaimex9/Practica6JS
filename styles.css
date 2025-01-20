@@ -13,12 +13,33 @@ h1{
 
 body{
     background: url('img/5d0a92939cbdd8900cb67179c731f4d0.gif') no-repeat center center fixed;
-    background-size: contain;
-    background-color: black;
+    background-size: cover;
     color: white;
     font-family: 'Nintendo';
 }
 
+input[type="button"]{
+    margin: 10px;
+    padding: 7px;
+    font-family: 'Nintendo';
+    background-color: white;
+    color: rgb(228, 0, 0);
+    border: none;
+    font-size: 23px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+input[type="button"]:hover{
+    background-color: red;
+    color: white;
+}
+
+label{
+    width: 100%;
+    margin: 7px 0px 5px 0px;
+    text-align: center;
+}
 
 
 #menu-div{
@@ -53,27 +74,29 @@ body{
 .form-div{
     display: none; /*Esto cambiara a Flex desde el JS*/
     border: 1px black solid;
-    width: 250px;
+    width: 600px;
     flex-wrap: wrap;
-    padding: 50px;
+    padding: 20px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
-    padding: 20px;
+    font-size: 29px;
 }
 
 #title{
     display: flex;
     width: 100%;
-    text-align: center;
+    justify-content: center;
     border-bottom: solid 1px rgb(69, 69, 69);
     margin-bottom: 10px;
+    font-size: 35px;
+    text-align: center;
 }
 
 #form{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 #buttons{
