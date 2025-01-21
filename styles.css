@@ -22,7 +22,7 @@ input[type="button"]{
     margin: 10px;
     padding: 7px;
     font-family: 'Nintendo';
-    background-color: white;
+    background: linear-gradient(to bottom, white, rgb(165, 165, 165));
     color: rgb(228, 0, 0);
     border: none;
     font-size: 23px;
@@ -31,7 +31,7 @@ input[type="button"]{
 }
 
 input[type="button"]:hover{
-    background-color: red;
+    background: red;
     color: white;
 }
 
@@ -49,7 +49,7 @@ label{
 }
 
 .menu-option{
-    background-color: white;
+    background: linear-gradient(to bottom, white, rgb(172, 172, 172));
     color: red;
     border-radius: 5px;
     padding: 15px;
@@ -60,7 +60,7 @@ label{
 }
 
 .menu-option:hover{
-    background-color: red;
+    background: red;
     color: white;
     cursor: pointer;
 }
@@ -93,7 +93,7 @@ label{
     text-align: center;
 }
 
-#form{
+.form{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
