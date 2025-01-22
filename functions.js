@@ -15,13 +15,13 @@ Participantes[1] = new Participante("Luigi", Vehiculos[1]);
 Participantes[2] = new Participante("Wario", Vehiculos[2]);
 Circuitos[0] = new Circuito("Copa_Estrella", 30, 10);
 Circuitos[1] = new Circuito("Copa_Trifuerza", 60, 20);
-Circuitos[2] = new Circuito("Copa_Especial",);
+Circuitos[2] = new Circuito("Copa_Especial", 15, 30);
 
 
 listarModelos();
 listarParticipantes();
 listarCircuitos();
-
+console.log(Participantes);
 document.getElementById("op1").onclick = function () {
 
 }
@@ -112,6 +112,8 @@ document.getElementById("guardarP").onclick = function () {
         alert("Porfavor, asegurate de no dejar ningun campo en blanco");
     } else {
         var participante = new Participante(nombre, vehiculo);
+        var array = [1,2,3];
+        participante.set(array);
         Participantes.push(participante);
         listarParticipantes();
         alert("Participante Guardado con exito!");
@@ -181,7 +183,6 @@ function limpiarInputs() {
 // Función para volver al menú principal y ocultar formularios
 function volver() {
     document.getElementById("menu-div").style.display = "flex";
-
     const forms = ["form1", "form2", "form3", "form4"];
     forms.forEach(formId => {
         const formElement = document.getElementById(formId);
