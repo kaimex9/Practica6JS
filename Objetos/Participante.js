@@ -7,7 +7,4 @@ class Participante {
         this.vehiculo = vehiculo;
         this.historial = [0,0,0];
     }
-    set historial(historial){
-        this.historial = historial;
-    }
 }

@@ -1,10 +1,5 @@
-
 /*
-
-bsfbf
 Pendiente:
-Que funcionen las stats de los participantes(4)
-Comprobar que no hayan vehiculos,participantes o circuitos con nombres repetidos(3)
 Asignar un participante a un circuito/hacer el formulario de creacion de una carrera(5)
 */
 var Vehiculos = [];
@@ -24,9 +19,10 @@ Circuitos[2] = new Circuito("Copa_Especial", 15, 30);
 listarModelos();
 listarParticipantes();
 listarCircuitos();
-console.log(Participantes);
-document.getElementById("op1").onclick = function () {
 
+document.getElementById("op1").onclick = function () {
+    document.getElementById("menu-div").style.display = "none";
+    document.getElementById("form0").style.display = "flex";
 }
 
 document.getElementById("op2").onclick = function () {
@@ -60,10 +56,19 @@ document.getElementById("guardarV").onclick = function () {
     var velMin = document.getElementById("velMin").value;
     var velMax = document.getElementById("velMax").value;
     var tipo = document.getElementById("tipo").value;
+    var repeated = false;
+    for (let i = 0; i < Vehiculos.length; i++) {
+        if (Vehiculos[i].modelo == modelo) {
+            repeated = true;
+            break;
+        }
+    }
     if (!modelo || !velMin || !velMax) {
         alert("Porfavor, asegurate de no dejar ningun campo en blanco");
     } else if (velMin > velMax || velMin <= 0) {
         alert("ERROR: Asegurate de que la velocidad del coche sea adecuada");
+    } else if (repeated) {
+        alert("ERROR: El nombre del modelo esta repetido");
     } else {
         if (tipo == "coche") {
             var vehiculo = new Coche(modelo, traccion, velMin, velMax);
@@ -110,18 +115,33 @@ document.getElementById("cargarV").onclick = function () {
 //Funcion para guardar un participante
 document.getElementById("guardarP").onclick = function () {
     var nombre = document.getElementById("participante").value;
-    var vehiculo = document.getElementById("vehiculos").value;
+    var nombreVehiculo = document.getElementById("vehiculos").value;
+    var repeated = false;
+    for (let i = 0; i < Participantes.length; i++) {
+        if (Participantes[i].nombre == nombre) {
+            repeated = true;
+            break;
+        }
+    }
     if (!nombre) {
         alert("Porfavor, asegurate de no dejar ningun campo en blanco");
+    } else if (repeated) {
+        alert("ERROR: El nombre del participante esta repetido");
     } else {
+        var vehiculo;
+        for (let i = 0; i < Vehiculos.length; i++) {
+            if (Vehiculos[i].modelo == nombreVehiculo) {
+                vehiculo = Vehiculos[i];
+                break;
+            }
+        }
         var participante = new Participante(nombre, vehiculo);
-        var array = [1,2,3];
-        participante.set(array);
         Participantes.push(participante);
         listarParticipantes();
         alert("Participante Guardado con exito!");
         volver();
         limpiarInputs();
+        console.log(Participantes);
     }
 }
 //Funcion para cargar un participante
@@ -143,9 +163,8 @@ document.getElementById("cargarP").onclick = function () {
             alert("Participante no encontrado");
         } else {
             document.getElementById("vehiculos").value = participanteEncontrado.vehiculo.modelo;
-            if (participanteEncontrado.historial) {
-                document.getElementById("stats").value = participanteEncontrado.historial;
-            }
+            var array = participanteEncontrado.historial;
+            document.getElementById("stats").value = array[0] + ',' + array[1] + ',' + array[2];
         }
     }
 }
@@ -155,8 +174,17 @@ document.getElementById("guardarC").onclick = function () {
     var nombre = document.getElementById("nombreCircuito").value;
     var longitud = document.getElementById("longitud").value;
     var tiempo = document.getElementById("tiempo").value;
+    var repeated = false;
+    for (let i = 0; i < Circuitos.length; i++) {
+        if (Circuitos[i].nombre == nombre) {
+            repeated = true;
+            break;
+        }
+    }
     if (!nombre || !longitud) {
         alert("Porfavor, asegurate de no dejar ningun campo en blanco");
+    } else if (repeated) {
+        alert("ERROR: El nombre del circuito esta repetido");
     } else {
         var circuito = new Circuito(nombre, tiempo, longitud);
         Circuitos.push(circuito);
@@ -223,10 +251,13 @@ function listarParticipantes() {
 function listarCircuitos() {
     var lista = document.getElementById("Circuitos");
     var lista2 = document.getElementById("circuitosC");
+    var lista3 = document.getElementById("listaCircuitos");
     lista.innerHTML = "";
     lista2.innerHTML = "";
+    lista3.innerHTML = "";
     for (let i = 0; i < Circuitos.length; i++) {
         lista.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
         lista2.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
+        lista3.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
     }
 }
