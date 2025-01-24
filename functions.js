@@ -40,11 +40,6 @@ document.getElementById("op4").onclick = function () {
     document.getElementById("form3").style.display = "flex";
 }
 
-document.getElementById("op5").onclick = function () {
-    document.getElementById("menu-div").style.display = "none";
-    document.getElementById("form4").style.display = "flex";
-}
-
 document.querySelectorAll(".volver").forEach(button => {
     button.addEventListener("click", volver);
 });
@@ -214,7 +209,7 @@ function limpiarInputs() {
 // Función para volver al menú principal y ocultar formularios
 function volver() {
     document.getElementById("menu-div").style.display = "flex";
-    const forms = ["form1", "form2", "form3", "form4"];
+    const forms = ["form0","form1", "form2", "form3"];
     forms.forEach(formId => {
         const formElement = document.getElementById(formId);
         if (formElement) {
@@ -238,26 +233,20 @@ function listarModelos() {
 //Funcion para listar los participantes en los datalists o selects
 function listarParticipantes() {
     var lista = document.getElementById("participantes");
-    var lista2 = document.getElementById("participanteC");
     lista.innerHTML = "";
-    lista2.innerHTML = "";
     for (let i = 0; i < Participantes.length; i++) {
         lista.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
-        lista2.innerHTML += '<option value=' + Participantes[i].nombre + '>' + Participantes[i].nombre + '</option>';
     }
 }
 
 //Funcion para listar los Circuitos en los datalists o selects
 function listarCircuitos() {
     var lista = document.getElementById("Circuitos");
-    var lista2 = document.getElementById("circuitosC");
-    var lista3 = document.getElementById("listaCircuitos");
+    var lista2 = document.getElementById("listaCircuitos");
     lista.innerHTML = "";
     lista2.innerHTML = "";
-    lista3.innerHTML = "";
     for (let i = 0; i < Circuitos.length; i++) {
         lista.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
         lista2.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
-        lista3.innerHTML += '<option value=' + Circuitos[i].nombre + '>' + Circuitos[i].nombre + '</option>';
     }
 }
